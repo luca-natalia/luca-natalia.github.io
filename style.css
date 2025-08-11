@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville:ital,wght@0,400..700;1,400..700&family=Cinzel:wght@400..900&family=Great+Vibes&family=Homemade+Apple&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Inspiration&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Merienda:wght@300..900&family=Oooh+Baby&family=Space+Grotesk:wght@300..700&display=swap');
+
+main p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.header-title {
+  font-size: 2em;
+  font-family: 'Inspiration';
+  max-width: 30px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  font-family: "Calligraphy", Arial, sans-serif;
+  background: #f4f4f4;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/sunset_tablet.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1; /* place it behind everything */
+}
+
+.background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-background {
+  position: relative;
+  padding: 80px 20px 20px;
+  z-index: 2;
+}
+
+.overlay-box {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 90%;
+}
+
+header {
+  background-color: #f4f4f4;
+  color: black;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-controls img {
+  width: 30px;
+  height: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+  border: 1px solid #ccc;        
+  box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+  border-radius: 3px;               
+  background-color: white;        
+}
+
+.language-menu {
+  position: absolute;
+  top: 60px;
+  right: 1px;
+  margin-right: 38px;
+  background: white;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+  z-index: 2500;
+}
+
+.language-menu img {
+  width: 30px;
+  height: 20px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.language-menu.hidden {
+  display: none;
+}
+
+.iban-box {
+  font-family: sans-serif;
+  font-size: 0.8em;
+  margin: 0 auto;            /* centers the box */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 10px 20px;
+  padding-bottom: 10px 20px;
+  text-align: left;         /* right-align text inside */
+  display: inline-block;     /* shrink-wrap width to content */
+  box-sizing: border-box;
+  max-width: 100%;           /* prevent overflow on small screens */
+}
+
+
+
+
+.our-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background-image: url("images/us.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-color: transparent;
+  transition: height 0.4s ease-in-out, background-size 0.4s ease-in-out;
+}
+
+.space {
+  font-size: 2.8em;
+  font-family: 'Great Vibes';
+}
+
+.name {
+  font-size: 3.5em;
+  font-family: 'Great Vibes';
+  margin-bottom: 5px;
+}
+
+.and {
+  font-size: 4em;
+  font-family: 'Inspiration';
+  margin-bottom: 5px;
+}
+
+.savedate {
+  font-size: 1.3em;
+  font-family: 'Josefin Slab';
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.location {
+  font-size: 1.3em;
+  font-family: 'Oooh Baby';
+  margin-bottom: 30px;
+}
+
+.location-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+}
+
+.map-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.description {
+  font-size: 1.1em;
+  font-family: 'Baskervville',sans-serif;
+}
+
+.description-eng {
+  font-size: 1.1em;
+  font-family: 'Baskervville',sans-serif;
+  text-align: center;
+}
+
+.description-leb {
+  font-size: 1em;
+  font-family: 'Amiri', sans-serif;
+  text-align: right;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav.desktop-nav {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  font-family: 'Baskervville',sans-serif;
+  gap: 15px;
+}
+
+nav.mobile-links-static {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+  font-size: 1.2em;
+  align-items: center;
+  font-family: 'Abhaya Libre';
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 10px;
+  font-size: 0.9em;
+  z-index: 2;
+  position: relative;
+}
+
+@keyframes slideDown {
+  from { margin-top: -100%; opacity: 0; }
+  to { margin-top: 100px; opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { margin-top: 100px; opacity: 1; }
+  to { margin-top: -100%; opacity: 0; }
+}
+
+@media (min-width: 760px) {
+  .mobile-links-static,
+  .overlay {
+    display: none !important;
+  }
+  .our-image {
+    height: 500px;
+  }
+  nav.desktop-nav {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 760px) {
+  .background-layer {
+    background-image: url("images/sunset_long.png");
+  }
+
+  .name {
+    font-size: 2.5em;
+  }
+
+  .and {
+    font-size: 3em;
+  }
+
+  .space {
+    font-size: 2em;
+  }
+
+}
+
+button {
+  border-radius: 10px;
+  min-width: 10px;
+}
+
+.desc-with-image {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.desc-with-image img.desc-image {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.description-leb .desc-with-image {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.menu-link,
+.travel-link,
+.hotel-link,
+.faq-link {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}

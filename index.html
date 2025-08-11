@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>Luca & Natalia Wedding</title>
+  <link href="style.css" rel="stylesheet" href="style.css?v=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Amiri&family=Merienda&family=Great+Vibes&family=Inspiration&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+   <div class="background-wrapper"> 
+  <header>
+    <div class="header-title">L&N</div>
+    <div class="header-controls">
+      <img id="language-flag" src="images/it.png" alt="Language" onclick="toggleLanguageMenu()" />
+      <div id="language-menu" class="language-menu hidden">
+        <img src="images/it.png" alt="Italiano" onclick="setLanguage('it')" />
+        <img src="images/gb.png" alt="English" onclick="setLanguage('en')" />
+        <img src="images/lb.png" alt="Lebanese" onclick="setLanguage('lb')" />
+      </div>
+    </div>
+  </header>
+<div class="background-layer"></div>
+  <main class="main-background">
+    <div class="space"><p>&nbsp;</p></div>
+
+    <p>
+      <span class="name">Luca</span>
+      &nbsp;&nbsp;
+      <span class="and"> & </span>
+      <span class="name">Natalia</span>
+    </p>
+
+    <div id="savedate" class="savedate">
+      <p>SABATO, 16 MAGGIO 2026</p>
+      <span id="countdown-days" class="savedate"></span>
+    </div>
+
+    <div class="location">
+      <p>
+        <a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
+          📍 Villa Grandinetti, Nocera Terinese (CS), ITALY
+        </a>
+      </p>
+    </div>
+
+    <div class="our-image"></div>
+
+    <nav class="desktop-nav overlay-box">
+      <button type="button" class="menu-link"></button>
+      <button type="button" class="travel-link"></button>
+      <button type="button" class="hotel-link"></button>
+      <button type="button" class="faq-link"></button>
+    </nav>
+
+    <div id="description" class="description overlay-box"></div>
+
+    <div class="overlay" id="overlay" onclick="closeOverlay()">
+      <div class="overlay-menu" onclick="event.stopPropagation()">
+      </div>
+    </div>
+  </main>
+</div>
+  <footer>
+    16/05/2025. SAVE THE DATE! 
+  </footer>
+
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const flagIcon = document.getElementById('language-flag');
+  const langMenu = document.getElementById('language-menu');
+  const description = document.getElementById('description');
+  const desktopNav = document.querySelector('.desktop-nav');
+  const overlayMenu = document.querySelector('.overlay-menu');
+  const savedate = document.getElementById('savedate');
+
+  const translations = {
+    it: {
+      flag: 'images/it.png',
+      weddate: 'SABATO, 16 MAGGIO 2026',
+      class: "description",
+      dir: "ltr",
+      nav: ["Home", "Viaggio", "Location", "FAQ"],
+      content: {
+        menu: `<p>Ciao a tutti! Il giorno del nostro matrimonio si avvicina! 💕 <br>
+Non vediamo l'ora di festeggiare insieme a voi questo momento speciale.<br>
+Il vostro affetto e la vostra presenza renderanno questa giornata indimenticabile!<br>
+<br><br>
+Abbiamo costruito questo sito per darvi qualche informazione su tutto quello che riguarda il matrimonio: come arrivare, dove poter alloggiare (per chi arriva da lontano) e il programma della giornata.<br>
+<br>
+Non vediamo l'ora di celebrare, ridere e ballare con ciascuno di voi.<br>
+Grazie di cuore!<br>
+<br>
+Con tanto affetto,<br>
+Luca e Natalia
+</p>`,
+        travel: `<p><p><b>COME RAGGIUNGERE LA CALABRIA</b><br><br>
+<b>Aeroporto</b><br>
+L'aeroporto più vicino alla location è <a href="https://maps.app.goo.gl/dbcAecErt8ZidZTe7" target="_blank">l'aeroporto di Lamezia Terme "Sant'Eufemia"</a>
+che è a circa 15-20 min di macchina<br>
+<br>Suggerimento: per chi viene dall'estero, potreste dover fare scalo a Roma.<br>Considerate la cosa se volete approfittare per un giro turistico in Italia! 😉 <br>
+<br><b>Treno</b><br>
+La stazione dei treni più vicina è <a href="https://maps.app.goo.gl/GtCq6ac812HsdNBz5" target="_blank">Lamezia Terme Centrale </a> ed è molto vicina all'aeroporto.<br>
+La stzione è collegata con le ciàà più importanti (Milano e Roma) tramite treni ad alta velocità (Italo e Frecciarossa)<br>
+<br></p>`,
+        hotel: `<a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
+       <div class="villa-grandinetti"><img src="images/villa.jpg" alt="Villa" class="desc-image"/></a>
+<br><br><p><b>COME RAGGIUNGERE LA LOCATION</b><br><br>
+I mezzi di trasporto pubblici in Calabria non sono il massimo, vi consigliamo quindi di raggiungere la location tramite la vostra auto.
+<br> Se ne siete sprovvisti o venite da fuori, ecco alcuni consigli:<br>
+<ul><li>Se avete la patente, vi consigliamo di noleggiare un auto all'aeroporto o alla stazione (prenotatela in anticipo via booking.com/Europcar.it o simili).<br>
+  In questo modo avrete la massima flessibilità e potrete approfittare anche per spostarvi in altri posti caratteristici prima o dopo il matrimonio</li>
+<br>
+<li>Se non potete noleggiare un auto, un consiglio potrebbe essere quello di prenotare un hotel con servizio navetta. Nelle FAQ abbiamo inserito qualche hotel che a richiesta fa da navetta sia da/per aeroporto che da/per la location</li>
+<br>
+</ul>
+In ogni caso se pensate di avere qualsiasi problema nel raggiungere la location, fateci sapere così ci organizziamo per risolverlo! 😊<br>
+</p></div>`,
+        faq: `<p><b>Dove alloggiare?</b><br> 
+<a href="https://www.booking.com/Share-x2qf2t" target="_blank">Il Lion's Hotel</a> è a 3 Km dalla location e ha un servizio navetta sia da/per aeroporto che da/per la location (a richiesta)
+<br><br>
+<b>La cerimonia e il ricevimento saranno in due location diverse?</b><br>
+No! Sia la cerimonia che il ricevimento avranno luogo nella stessa location<br><br>
+<b>A che ora iniziano la cerimonia e il ricevimento? </b><br>
+La cerimonia iniza alle 17:00 ma la location è pronta a ricevere gli ospiti già dalle 16:30. Il ricevimento avrà luogo nella stessa location al termine della cerimonia<br><br>
+<b>A che ora finisce l'evento? </b><br>
+L'evento terminerà più o meno verso l'una di notte<br><br>
+<b>E' disponibile un parcheggio? </b><br>
+Si, Villa Grandinetti ha un parcheggio gratuito per gli ospiti dell'evento<br><br>
+<b>E' possibile usare Uber per raggiungere la location? </b><br>
+No. Ti consigliamo di noleggiare un auto o pernottare in un hotel con servizio navetta<br><br>
+<b>L'evento sarà all'aperto? </b><br>
+Si, se il meteo lo permette! 😊 <br>
+Sia la cerimonia che il ricevimento avranno luogo all'esterno.
+Poichè le temperature di metà Maggio sono sempre abbastanza variabili, consigliamo di portare con sè una giacca per la parte finale della serata
+<b>Ho delle allergie o restrizioni alimentari. Come faccio ad avvisarvi?</b><br>
+Se hai allergie/restrizioni alimentari, facci sapere al più presto così ci organizziamo!<br><br>
+<b>Se ho bisogno di maggiori informazioni?</b><br>
+Per qualsiasi info aggiuntiva, non farti problemi e contattaci pure!<br>
+</p>`
+      }
+    },
+    en: {
+      flag: 'images/gb.png',
+      weddate: 'SATURDAY, MAY 16, 2026',
+      class: "description-eng",
+      dir: "ltr",
+      nav: ["Home", "Travel", "Venue", "Q+A"],
+      content: {
+        menu: `<p>Dear friends and family, our wedding day is coming! 💕<br>
+It means the world to us to have you by our side as we start this new chapter together.<br>
+Your love, support, and presence will make this celebration truly unforgettable!<br>
+<br>
+This website is your little guide to all things related to the wedding: from how to get to the venue, where we suggest you to stay, to the schedule of THE day.<br>
+We've put together all the useful info here so you can relax and enjoy every moment with us.<br>
+<br>
+We can't wait to celebrate, laugh, and dance with each and every one of you.<br>
+Thank you from the bottom of our hearts!<br>
+<br>
+With all our love,<br>
+Luca and Natalia</p>`,
+        travel: `<p><b>HOW TO GET TO CALABRIA</b><br><br>
+<b>Airport</b><br>
+The closest airport to the wedding location is <a href="https://maps.app.goo.gl/dbcAecErt8ZidZTe7" target="_blank"> Lamezia Terme "Sant'Eufemia" Airport</a>
+and it's about 20 km away (a 15-20 minutes' drive by car)<br>
+<br>A potentially useful tip: if you're flying directly from abroad (outside of EU) to Italy, most probably you'll be having a layover (potentially in Rome).<br>You might want to consider that while planning your trip to make the most out of it 😉 <br>
+<br><b>Train</b><br>
+The closest train station is <a href="https://maps.app.goo.gl/GtCq6ac812HsdNBz5" target="_blank">Lamezia Terme Centrale </a> and is near the airport.<br>
+You can reach it via the high-speed train both from Milan and Rome<br>
+<br>
+</p>`,
+        hotel: `<a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
+       <div class="villa-grandinetti"><img src="images/villa.jpg" alt="Villa" class="desc-image"/></a>
+<br><br><p><b>HOW TO GET TO THE WEDDING VENUE</b><br><br>
+The public transportation in Calabria is not very available. Uber doesn't exist there, and basically taxis are not easily available to move around.<br><br>
+But that's not going to stop our favorite people from all over the world from joining us to celebrate together with us the new chapter of our love story😊 <br><br>
+Here are some suggestions and useful information on how to get there if you don't have a car:<br>
+<ul><li>If you have a valid driver's license that you can use in Italy, we recommend renting a car directly from the airport or the train station (consider renting through booking.com/Europcar.it in advance for example) so you can move around freely and be flexible with your time</li>
+<br>
+<li>In case you can't rent a car, consider booking a hotel that provides an airport shuttle service and in general shuttle services. We will provide a list of recommended accommodation based on distance and reachability</li>
+<br>
+</ul>
+
+In case you think you could have any issues getting to the location, please reach out to us and we will manage it! 😊<br>
+</p></div>`,
+        faq: `<p><b>Where to Stay?</b><br>
+The 
+<a href="https://www.booking.com/Share-x2qf2t" target="_blank">Lion's Hotel</a> is 3 Km away from the venue and provides a shuttle service from and to the airport as well as to the wedding location, upon request
+<br><br>
+<b>The ceremony and the wedding celebration will be in different locations? </b><br>
+No! Both the ceremony and the celebration will be in the same location<br><br>
+<b>What time does the ceremony and the wedding celebration start? </b><br>
+The ceremony starts at 5pm and the ceremony space opens for guests at 4:30PM. The wedding celebration will start in the same location right after the end of the ceremony<br><br>
+<b>What time does the event end? </b><br>
+The event will end approximately around 1AM<br><br>
+<b>Is parking available at the venue? </b><br>
+Yes, Villa Grandinetti has a parking lot, free of charge<br><br>
+<b>Are Uber or Lyft available if I don't have a car? </b><br>
+No. Consider renting a car or booking a hotel with shuttle services<br><br>
+<b>Is the wedding outdoors? </b><br>
+Nshalla, if the weather permits😊 <br>
+Both the ceremony and the reception will be outdoors. Keep in mind that in the month of May the temperature typically ranges between a high of 78F/25C and a low of 57F/15C. We recommend bringing a jacket for the chilly evening<br><br>
+<b>I have dietary restrictions/allergies. What is the best way to let you know?</b><br>
+If you have any allergies/dietary restrictions, please reach out to us as soon as possible!<br><br>
+
+<b>How can we contribute to your honeymoon or new life together?</b><br>
+Your love and support are more than enough. That said, if you'd like to contribute to our future adventures, below you can find the details of our joint bank account:
+<br><br>
+<div class="iban-box">
+<b>Beneficiary:</b>
+Luca Mastrota & Natalia Sayed
+<br><br>
+
+<b>IBAN:</b>
+IT88 H036 6901 6004 0335 5296 055
+<br><br>
+
+
+<b>SWIFT/BIC:</b> REVOITM2 <br><br>
+<b>Bank Name:</b> Revolut Bank UAB <br><br>
+<b>Currency:</b> Euro <br>
+</div>
+<br><br>
+<b>What's the best way to reach you if I have additional questions?</b><br>
+For any additional questions, please feel free to reach out to us!<br>
+</p>`
+      }
+    },
+    lb: {
+      flag: 'images/lb.png',
+      weddate: 'SATURDAY, MAY 16, 2026',
+      class: "description-leb",
+      dir: "rtl",
+      nav: ["القائمة", "السفر", "مساعدة", "معلومات عنا"],
+      content: {
+        menu: `<p>
+أهلاً وسهلاً! بيسعدنا نشارك معكم أحلى خبر — موعد عرسنا قرّب! 💕<br>  بشرفنا نحيي هاللحظة الحلوة معكن. حضوركم بيخلي فرحتنا الكبيرة أكبر!<br><br>
+ خلقنا  هيدا الموقع ليكون دليل الكن  و يعطيكن معلومات مفيدة عن  العرس: كيف توصلوا على صالة العرس، إقتراحات عن أوتيلات ، و البرنامج يلي خططني للسهرة.<br><br>
+كتير متشوقين لنجتمع من جديد معكن ونحتفل، نضحك ونقضي السهرة عم نرقص سوا.<br><br>
+مع حبنا الكبير،<br>
+لوقا وناتاليا
+</p>`,
+        travel: `<div class="desc-with-image"><img src="images/villa.jpg" alt="Villa" class="desc-image"/><p>دليل السفر: يسعدنا مشاركته معكم!</p></div>`,
+        hotel: `<p>اتصل بي إذا كنت بحاجة إلى مساعدة.</p>`,
+        faq: `<p>نحن رائعون!</p>`
+      }
+    }
+  };
+
+  function closeOverlay() {
+    if (overlay.classList.contains('show')) overlay.classList.remove('show');
+  }
+
+  function toggleLanguageMenu() {
+    if (overlay.classList.contains('show')) return;
+    langMenu.classList.toggle('hidden');
+  }
+
+  function setLanguage(lang) {
+    const data = translations[lang];
+    flagIcon.src = data.flag;
+    savedate.innerHTML = `<p>${data.weddate}</p>`;
+    description.innerHTML = data.content.menu;
+    description.className = `overlay-box ${data.class}`;
+    description.dir = data.dir;
+
+    document.querySelectorAll('.menu-link').forEach(el => el.textContent = data.nav[0]);
+    document.querySelectorAll('.travel-link').forEach(el => el.textContent = data.nav[1]);
+    document.querySelectorAll('.hotel-link').forEach(el => el.textContent = data.nav[2]);
+    document.querySelectorAll('.faq-link').forEach(el => el.textContent = data.nav[3]);
+
+    desktopNav.dir = data.dir;
+    overlayMenu.dir = data.dir;
+
+    localStorage.setItem('language', lang);
+    langMenu.classList.add('hidden');
+  }
+
+  function updateDescription(section) {
+    const lang = localStorage.getItem('language') || 'it';
+    const data = translations[lang];
+    description.innerHTML = data.content[section];
+    description.className = `overlay-box ${data.class}`;
+    description.dir = data.dir;
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || navigator.language.slice(0, 2);
+    const langCode = ['it', 'en', 'lb'].includes(savedLang) ? savedLang : 'it';
+    setLanguage(langCode);
+  });
+
+  document.querySelectorAll('.menu-link').forEach(el =>
+    el.addEventListener('click', () => updateDescription('menu'))
+  );
+  document.querySelectorAll('.travel-link').forEach(el =>
+    el.addEventListener('click', () => updateDescription('travel'))
+  );
+  document.querySelectorAll('.hotel-link').forEach(el =>
+    el.addEventListener('click', () => updateDescription('hotel'))
+  );
+  document.querySelectorAll('.faq-link').forEach(el =>
+    el.addEventListener('click', () => updateDescription('faq'))
+  );
+
+  function updateCountdown() {
+    const eventDate = new Date('2026-05-16T17:00:00');
+    const now = new Date();
+    const diffTime = eventDate - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const countdownText = diffDays >= 0 ? `${diffDays} days to go!` : `+${Math.abs(diffDays)} days ago`;
+    document.getElementById('countdown-days').textContent = countdownText;
+  }
+
+  updateCountdown();
+
+</script>
+
+
+   </div>
+</body>
+</html>
+
+
