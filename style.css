@@ -28,17 +28,30 @@ body.menu-open {
 }
 
 .background-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
+  margin-bottom: 0px;
+  padding-top: 50px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   width: 100%;
   height: 100%;
   background-image: url("images/sunset_tablet.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: -1; /* place it behind everything */
+  z-index: 2; /* place it behind everything */
 }
+
+.backDescription {
+  position: relative;
+  margin-top: 0px;
+  padding: 1px;
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+  z-index: 2; /* place it behind everything */
+}
+
 
 .background-wrapper {
   position: relative;
@@ -46,18 +59,13 @@ body.menu-open {
   overflow-x: hidden;
 }
 
-.main-background {
-  position: relative;
-  padding: 80px 20px 20px;
-  z-index: 2;
-}
-
 .overlay-box {
   background: rgba(255, 255, 255, 0.75);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
-  margin: 20px auto;
-  max-width: 90%;
+  align-content: center;
+  margin: 10px auto;
+  max-width: 95%;
 }
 
 header {
@@ -78,13 +86,13 @@ header {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .header-controls img {
   width: 30px;
   height: 20px;
-  margin-right: 40px;
+  margin-right: 20px;
   cursor: pointer;
   border: 1px solid #ccc;        
   box-shadow: 0 0px 3px rgba(0,0,0,0.2);
@@ -96,7 +104,7 @@ header {
   position: absolute;
   top: 60px;
   right: 1px;
-  margin-right: 38px;
+  margin-right: 20px;
   background: white;
   flex-direction: column;
   border: 1px solid #ccc;
@@ -196,18 +204,18 @@ header {
 }
 
 .description {
-  font-size: 1.1em;
+  font-size: 1em;
   font-family: 'Baskervville',sans-serif;
 }
 
 .description-eng {
-  font-size: 1.1em;
+  font-size: 1em;
   font-family: 'Baskervville',sans-serif;
   text-align: center;
 }
 
 .description-leb {
-  font-size: 1em;
+  font-size: 0.9em;
   font-family: 'Amiri', sans-serif;
   text-align: right;
 }
@@ -223,7 +231,7 @@ nav.desktop-nav {
   justify-content: center;
   font-size: 1em;
   font-family: 'Baskervville',sans-serif;
-  gap: 15px;
+  gap: 30px;
 }
 
 nav.mobile-links-static {
@@ -236,14 +244,6 @@ nav.mobile-links-static {
   font-family: 'Abhaya Libre';
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px 10px;
-  font-size: 0.9em;
-  z-index: 2;
-  position: relative;
-}
 
 @keyframes slideDown {
   from { margin-top: -100%; opacity: 0; }
