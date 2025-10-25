@@ -275,12 +275,28 @@ nav.mobile-links-static {
 }
 
 .description-eng {
-  font-size: 0.2em;
+  font-size: 1em;
 
 }
 
 .description-leb {
   font-size: 0.9em;
+
+}
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .description {
+    font-size: 1em !important;
+  }
+  
+.description-eng {
+  font-size: 1em !important;
+
+}
+
+.description-leb {
+  font-size: 0.9em !important;
 
 }
 }
