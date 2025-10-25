@@ -156,22 +156,8 @@ header {
 }
 
 
-
-
-.our-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background-image: url("images/us.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  background-color: transparent;
-  transition: height 0.4s ease-in-out, background-size 0.4s ease-in-out;
-}
-
 .space {
-  font-size: 2.8em;
+  font-size: 1.5em;
   font-family: 'Great Vibes';
 }
 
@@ -282,6 +268,21 @@ nav.mobile-links-static {
   nav.desktop-nav {
     gap: 60px;
   }
+
+  .description {
+  font-size: 1em;
+
+}
+
+.description-eng {
+  font-size: 1em;
+
+}
+
+.description-leb {
+  font-size: 0.9em;
+
+}
 }
 
 @media (max-width: 760px) {
