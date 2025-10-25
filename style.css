@@ -5,6 +5,9 @@ main p {
   margin-bottom: 0;
 }
 
+html {
+  font-size: 1em; /* set default font-size so 1em equals the base size */
+}
 
 .header-title {
   font-size: 2em;
@@ -291,12 +294,12 @@ nav.mobile-links-static {
   }
   
 .description-eng {
-  font-size: 3em !important;
+  font-size: 1em !important;
 
 }
 
 .description-leb {
-  font-size: 0.5em !important;
+  font-size: 0.9em !important;
 
 }
 }
