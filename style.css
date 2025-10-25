@@ -285,18 +285,18 @@ nav.mobile-links-static {
 }
 }
 
-@media (max-width: 760px) and (orientation: landscape) {
+@media (orientation: landscape) {
   .description {
     font-size: 1em !important;
   }
   
 .description-eng {
-  font-size: 1em !important;
+  font-size: 3em !important;
 
 }
 
 .description-leb {
-  font-size: 0.9em !important;
+  font-size: 0.5em !important;
 
 }
 }
