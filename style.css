@@ -36,7 +36,7 @@ body.menu-open {
   margin-top: var(--header-height); /* keep below fixed header */
   box-sizing: border-box;
   overflow: hidden;
-  background-image: url("images/grok1.gif");
+  background-image: url("images/grok1-desktop.gif");
   background-repeat: no-repeat;
   background-position: top center;    /* keep top of image visible */
   background-size: 100% 100%;         /* fill the container (no crop) */
@@ -308,7 +308,7 @@ nav.mobile-links-static {
   .background-layer {
     /* keep the same background rules but you can optionally force full viewport height:
        remove the aspect-ratio line below if you prefer a fixed viewport-height behavior */
-    background-image: url("images/grok1.gif");
+    background-image: url("images/grok1-mobile.gif");
     background-position: top center;
     background-size: 100% 100%;
     aspect-ratio: var(--bg-aspect-ratio);

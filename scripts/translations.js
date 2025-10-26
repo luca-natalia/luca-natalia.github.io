@@ -28,7 +28,8 @@ che è a circa 15-20 min di macchina<br>
 La stazione dei treni più vicina è <a href="https://maps.app.goo.gl/GtCq6ac812HsdNBz5" target="_blank">Lamezia Terme Centrale </a> ed è molto vicina all'aeroporto.<br>
 La stzione è collegata con le città più importanti (Milano e Roma) tramite treni ad alta velocità (Italo e Frecciarossa)<br>
 <br></p>`,
-      hotel: `<a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
+      hotel:
+      `<a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
        <div class="villa-grandinetti"><img src="images/villa.jpg" alt="Villa" class="desc-image"/></a>
 <br><br><p><b>COME RAGGIUNGERE LA LOCATION</b><br><br>
 I mezzi di trasporto pubblici in Calabria non sono il massimo, vi consigliamo quindi di raggiungere la location tramite la vostra auto.
@@ -41,8 +42,11 @@ I mezzi di trasporto pubblici in Calabria non sono il massimo, vi consigliamo qu
 </ul>
 In ogni caso se pensate di avere qualsiasi problema nel raggiungere la location, fatecelo sapere così ci organizziamo per risolverlo! 😊<br>
 </p></div>`,
-      faq: `<p><b>Dove alloggiare?</b><br> 
-<a href="https://www.booking.com/Share-x2qf2t" target="_blank">Il Lion's Hotel</a> è a 3 Km dalla location e ha un servizio navetta sia da/per aeroporto che da/per la location (a richiesta)
+      faq: `<p><b>Dove alloggiare?</b><br>
+Nei dintorni della location ci sono diversi hotel e B&B. Quando prenotate, chiedete se offrono un servizio navetta da/per la location.<br>
+Ad esempio, <a href="https://www.booking.com/Share-x2qf2t" target="_blank">il Lion's Hotel</a> è a 3 Km dalla location e ha un servizio navetta sia da/per aeroporto che da/per la location (a richiesta).<br>
+<br>
+Aggiorneremo presto questa sezione con altre possibili soluzioni. Stay tuned!
 <br><br>
 <b>La cerimonia e il ricevimento saranno in due location diverse?</b><br>
 No! Sia la cerimonia che il ricevimento avranno luogo nella stessa location<br><br>
@@ -131,9 +135,10 @@ Here are some suggestions and useful information on how to get there if you don'
 In case you think you could have any issues getting to the location, please reach out to us and we will manage it! 😊<br>
 </p></div>`,
       faq: `<p><b>Where to Stay?</b><br>
-The 
-<a href="https://www.booking.com/Share-x2qf2t" target="_blank">Lion's Hotel</a> is 3 Km away from the venue and provides a shuttle service from and to the airport as well as to the wedding location, upon request
-<br><br>
+Around the location there are multiple hotels and B&Bs. When booking try asking if they can provide shuttle services to/from the wedding venue.<br>
+For example, <a href="https://www.booking.com/Share-x2qf2t" target="_blank">Lion's Hotel</a> is 3 Km away from the venue and provides a shuttle service from and to the airport as well as to the wedding location, upon request.
+<br>
+We will update soon this section with other solutions. Stay tuned!<br><br>
 <b>The ceremony and the wedding celebration will be in different locations? </b><br>
 No! Both the ceremony and the celebration will be in the same location<br><br>
 <b>What time does the ceremony and the wedding celebration start? </b><br>
@@ -143,7 +148,7 @@ The event will end approximately around 1AM<br><br>
 <b>Is parking available at the venue? </b><br>
 Yes, Villa Grandinetti has a parking lot, free of charge<br><br>
 <b>Are Uber or Lyft available if I don't have a car? </b><br>
-No. Consider renting a car or booking a hotel with shuttle services<br><br>
+No. Consider renting a car or booking a hotel with shuttle services. In case you could have any issues let us know in advance and we will manage it<br><br>
 <b>Is the wedding outdoors? </b><br>
 Nshalla, if the weather permits😊 <br>
 Both the ceremony and the reception will be outdoors. Keep in mind that in the month of May the temperature typically ranges between a high of 78F/25C and a low of 57F/15C. We recommend bringing a jacket for the chilly evening<br><br>
@@ -216,14 +221,13 @@ Booking.com/Europcar.it
 </p>`,
       faq: `<p>
 <b>وين ممكن إحجز اوتل؟ </b><br>
-
-
-يبعد
+في كتير أوتيلات و بيوت ضيافة حول صالة العرس. قبل ما تحجزوا، إسألوا إذا بيقدموا خدمات نقل <br>
+مثلاً،
 
 <a href="https://www.booking.com/Share-x2qf2t" target="_blank">Lion's Hotel</a>
 
 
-3 كم من مكان صالة العرس، وبقدم خدمات نقل من وإلى المطار، ومن وإلى صالة العرس عند الطلب. <br>
+  وبقدم خدمات نقل من وإلى المطار، ومن وإلى صالة العرس عند الطلب <br>
 <br>
 <b>هل ستقام مراسيم الزواج والحفلة في أماكن مختلفه؟</b><br>
 ستقام المراسيم والحفلة في نفس المكان.<br>
