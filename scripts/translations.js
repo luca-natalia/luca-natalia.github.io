@@ -128,7 +128,7 @@ But that's not going to stop our favorite people from all over the world from jo
 Here are some suggestions and useful information on how to get there if you don't have a car:<br>
 <ul><li>If you have a valid driver's license that you can use in Italy, we recommend renting a car directly from the airport or the train station (consider renting in advance through Booking.com/Europcar.it for example) so you can move around freely and be flexible with your time</li>
 <br>
-<li>In case you can't rent a car, consider booking a hotel that provides an airport shuttle service and in general shuttle services. We will provide a list of recommended accommodation based on distance and reachability</li>
+<li>In case you can't rent a car, consider booking a hotel that provides an airport shuttle service and in general shuttle services</li>
 <br>
 </ul>
 
@@ -217,7 +217,7 @@ Booking.com/Europcar.it
 
 وبتستلموا السيارة بالمطار ، هيك عندكن الحريه تتنقلوا وين ما بدكن من وإلى المطار ومن و- إلى الأوتل وصالة العرس ،وحتى إذا حابين تكزدروا بالمنطقة وتزوروا أماكن مختلفه بجنوب إيطاليا قبل أو بعد العرس.<br>
  <br>
-في حال ما حابين أو ما ممكن تستأجروا أو تقودوا سيارة، مننصحكن تحجزوا اوتل بقدم خدمات نقل من وإلى المطار وبشكل عام. في قسم اسئلة وأجوبه من هذا الويبسايت منقترح عليكن كم اوتيل  قريب على صالة العرس بقدم هل خدمات . بس بكل الاحوال اذا واجهتكم أي صعوبه  ما تترددوا تخبرونا و نحن منهتم بحلها.<br>
+في حال ما حابين أو ما ممكن تستأجروا أو تقودوا سيارة، مننصحكن تحجزوا اوتل بقدم خدمات نقل من وإلى المطار وبشكل عام. في قسم اسئلة وأجوبه من هذا الويبسايت منقترح عليكن اوتيل  قريب على صالة العرس بقدم هل خدمات . بس بكل الاحوال اذا واجهتكم أي صعوبه  ما تترددوا تخبرونا و نحن منهتم بحلها.<br>
 </p>`,
       faq: `<p>
 <b>وين ممكن إحجز اوتل؟ </b><br>
