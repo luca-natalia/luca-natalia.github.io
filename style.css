@@ -31,16 +31,18 @@ body.menu-open {
 }
 
 .background-layer {
+   min-height: 0;
   position: relative;
   width: 100%;
-  margin-top: var(--header-height); /* keep below fixed header */
   box-sizing: border-box;
+  
+  margin-top: var(--header-height); /* keep below fixed header */
   overflow: hidden;
   background-image: url("images/grok1-desktop.gif");
   background-repeat: no-repeat;
   background-position: top center;    /* keep top of image visible */
   background-size: 100% 100%;         /* fill the container (no crop) */
-  aspect-ratio: var(--bg-aspect-ratio); /* container height derived from width */
+  aspect-ratio: var(--dt-aspect-ratio); /* container height derived from width */
   max-width: 100%;
   background-color: transparent;
 }
@@ -82,6 +84,7 @@ body.menu-open {
 :root {
   --header-height: 64px; /* adjust value to your actual header height */
   --bg-aspect-ratio: 16 / 9; /* set this to your image's original ratio (width / height) */
+  --dt-aspect-ratio: 15 / 7; /* desktop aspect ratio */
 }
 
 header {
