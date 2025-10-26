@@ -52,8 +52,6 @@ Aggiorneremo presto questa sezione con altre possibili soluzioni. Stay tuned!
 No! Sia la cerimonia che il ricevimento avranno luogo nella stessa location<br><br>
 <b>A che ora iniziano la cerimonia e il ricevimento? </b><br>
 La cerimonia iniza alle 17:00 ma la location è pronta a ricevere gli ospiti già dalle 16:30. Il ricevimento avrà luogo nella stessa location al termine della cerimonia<br><br>
-<b>A che ora finisce l'evento? </b><br>
-L'evento terminerà più o meno verso l'una di notte<br><br>
 <b>E' disponibile un parcheggio? </b><br>
 Si, Villa Grandinetti ha un parcheggio gratuito per gli ospiti dell'evento<br><br>
 <b>E' possibile usare Uber per raggiungere la location? </b><br>
@@ -81,8 +79,6 @@ IT88 H036 6901 6004 0335 5296 055
 <b>Bank Name:</b> Revolut Bank UAB <br><br>
 <b>Currency:</b> Euro <br>
 </div>
-<br><br>
-In alternativa, ogni vostro regalo è ben accetto e potrete portarlo direttamente alla location!
 <br><br>
 <b>Entro quando devo confermare la mia presenza?</b><br>
 Vi chiediamo gentilmente di confermare la vostra presenza entro il 17 Aprile 2026, contattandoci su WhatsApp.<br><br>
@@ -143,8 +139,6 @@ We will update soon this section with other solutions. Stay tuned!<br><br>
 No! Both the ceremony and the celebration will be in the same location<br><br>
 <b>What time does the ceremony and the wedding celebration start? </b><br>
 The ceremony starts at 5pm and the ceremony space opens for guests at 4:30PM. The wedding celebration will start in the same location right after the end of the ceremony<br><br>
-<b>What time does the event end? </b><br>
-The event will end approximately around 1AM<br><br>
 <b>Is parking available at the venue? </b><br>
 Yes, Villa Grandinetti has a parking lot, free of charge<br><br>
 <b>Are Uber or Lyft available if I don't have a car? </b><br>
@@ -249,7 +243,7 @@ Booking.com/Europcar.it
 منطلب رجاءً ابلاغنا عن حساسيات الطعام على واتساب قبل بوقت تنقدر ننسق مع صالة العرس<br>
 <br>
 <b>حابين نهنيكن بالعرس، إذا حابين نبعت هدية كيف فينا نساهم؟</b><br>
-انكن تشاركونا بعرسنا أكبر هدية النا. لمن يرغب الإهداء، منتقبل التهاني والهدايا بصالة العرس أو إذا حابين على حسابنا المشترك
+انكن تشاركونا بعرسنا أكبر هدية النا. لمن يرغب الإهداء، حسابنا المشترك
 <br><br>
 <div style="text-align: center;" class="iban-box">
 <b>Beneficiary:</b>
