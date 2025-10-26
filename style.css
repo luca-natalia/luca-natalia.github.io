@@ -311,7 +311,7 @@ nav.mobile-links-static {
   .background-layer {
     /* keep the same background rules but you can optionally force full viewport height:
        remove the aspect-ratio line below if you prefer a fixed viewport-height behavior */
-    background-image: url("images/grok1-mobile.gif");
+    background-image: url("images/grok1-mobile2.gif");
     background-position: top center;
     background-size: 100% 100%;
     aspect-ratio: var(--bg-aspect-ratio);
