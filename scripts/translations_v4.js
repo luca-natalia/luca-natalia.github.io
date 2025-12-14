@@ -2,7 +2,7 @@
 const translations = {
   it: {
     flag: 'images/it.png',
-    weddate: 'SABATO, 16 MAGGIO 2026, 17:00',
+    weddate: 'SABATO, 16 MAGGIO 2026, 17:30',
     class: "description",
     dir: "ltr",
     nav: ["Home", "Viaggio", "Location", "FAQ"],
@@ -89,7 +89,7 @@ Per qualsiasi info aggiuntiva, non farti problemi e contattaci pure!<br>
   },
   en: {
     flag: 'images/gb.png',
-    weddate: 'SATURDAY, MAY 16, 2026, 17:00',
+    weddate: 'SATURDAY, MAY 16, 2026, 17:30',
     class: "description-eng",
     dir: "ltr",
     nav: ["Home", "Travel", "Venue", "Q+A"],
@@ -176,7 +176,7 @@ For any additional questions, please feel free to reach out to us!<br>
   },
   lb: {
     flag: 'images/lb.png',
-    weddate: 'SATURDAY, MAY 16, 2026',
+    weddate: 'SATURDAY, MAY 16, 2026, 17:30',
     class: "description-leb",
     dir: "rtl",
     nav: ["القائمة", "تنظيم السفرة", "صالة العرس", "أسئلة وأجوبة"],
