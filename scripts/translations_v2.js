@@ -2,7 +2,7 @@
 const translations = {
   it: {
     flag: 'images/it.png',
-    weddate: 'SABATO, 16 MAGGIO 2026',
+    weddate: 'SABATO, 16 MAGGIO 2026, 17:00',
     class: "description",
     dir: "ltr",
     nav: ["Home", "Viaggio", "Location", "FAQ"],
@@ -51,7 +51,7 @@ Aggiorneremo presto questa sezione con altre possibili soluzioni. Stay tuned!
 <b>La cerimonia e il ricevimento saranno in due location diverse?</b><br>
 No! Sia la cerimonia che il ricevimento avranno luogo nella stessa location<br><br>
 <b>A che ora iniziano la cerimonia e il ricevimento? </b><br>
-La cerimonia iniza alle 17:00 ma la location è pronta a ricevere gli ospiti già dalle 16:30. Il ricevimento avrà luogo nella stessa location al termine della cerimonia<br><br>
+La cerimonia iniza alle 17:30 ma la location è pronta a ricevere gli ospiti già dalle 17:00. Il ricevimento avrà luogo nella stessa location al termine della cerimonia<br><br>
 <b>E' disponibile un parcheggio? </b><br>
 Si, Villa Grandinetti ha un parcheggio gratuito per gli ospiti dell'evento<br><br>
 <b>E' possibile usare Uber per raggiungere la location? </b><br>
@@ -89,7 +89,7 @@ Per qualsiasi info aggiuntiva, non farti problemi e contattaci pure!<br>
   },
   en: {
     flag: 'images/gb.png',
-    weddate: 'SATURDAY, MAY 16, 2026',
+    weddate: 'SATURDAY, MAY 16, 2026, 17:00',
     class: "description-eng",
     dir: "ltr",
     nav: ["Home", "Travel", "Venue", "Q+A"],
@@ -138,7 +138,7 @@ We will update soon this section with other solutions. Stay tuned!<br><br>
 <b>The ceremony and the wedding celebration will be in different locations? </b><br>
 No! Both the ceremony and the celebration will be in the same location<br><br>
 <b>What time does the ceremony and the wedding celebration start? </b><br>
-The ceremony starts at 5pm and the ceremony space opens for guests at 4:30PM. The wedding celebration will start in the same location right after the end of the ceremony<br><br>
+The ceremony starts at 5:30pm and the ceremony space opens for guests at 5PM. The wedding celebration will start in the same location right after the end of the ceremony<br><br>
 <b>Is parking available at the venue? </b><br>
 Yes, Villa Grandinetti has a parking lot, free of charge<br><br>
 <b>Are Uber or Lyft available if I don't have a car? </b><br>
@@ -227,7 +227,7 @@ Booking.com/Europcar.it
 ستقام المراسيم والحفلة في نفس المكان<br>
 <br>
 <b>متى ستقام مراسيم الزواج؟</b><br>
-الصالة تبدأ بإستقبال الضيوف حوالي الساعة الرابعة ونصف وتبدأ المراسيم حوالي الساعة خمسه<br>
+الصالة تبدأ بإستقبال الضيوف حوالي الساعة خمسه وتبدأ المراسيم حوالي الساعة خمسه ونصف<br>
 من بعدها يبدأ البوفية والحفلة في المكان ذاته<br>
 <br>
 <b>هل يوجد باركينغ؟</b><br>
