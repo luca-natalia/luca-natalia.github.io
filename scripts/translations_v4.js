@@ -46,7 +46,10 @@ In ogni caso se pensate di avere qualsiasi problema nel raggiungere la location,
 Nei dintorni della location ci sono diversi hotel e B&B. Quando prenotate, chiedete se offrono un servizio navetta da/per la location.<br>
 Ad esempio, <a href="https://www.booking.com/Share-x2qf2t" target="_blank">il Lion's Hotel</a> è a 3 Km dalla location e ha un servizio navetta sia da/per aeroporto che da/per la location (a richiesta).<br>
 <br>
-Aggiorneremo presto questa sezione con altre possibili soluzioni. Stay tuned!
+Altre possibili soluzioni:<br>
+<a href="http://www.unanuovastrada.it/" target="_blank">Una nuova strada Hotel</a> <br>
+<a href="https://www.hotelristorantesangiovanni.it" target="_blank">Hotel San Giovanni</a> <br>
+<a href="https://www.booking.com/Share-pZYEER" target="_blank">Mediterraneo Palace Hotel</a>
 <br><br>
 <b>La cerimonia e il ricevimento saranno in due location diverse?</b><br>
 No! Sia la cerimonia che il ricevimento avranno luogo nella stessa location<br><br>
@@ -58,8 +61,8 @@ Si, Villa Grandinetti ha un parcheggio gratuito per gli ospiti dell'evento<br><b
 No. Ti consigliamo di noleggiare un auto o pernottare in un hotel con servizio navetta<br><br>
 <b>L'evento sarà all'aperto? </b><br>
 Si, se il meteo lo permette! 😊 <br>
-Sia la cerimonia che il ricevimento avranno luogo all'esterno.
-Poichè le temperature di metà Maggio sono sempre abbastanza variabili, consigliamo di portare con sè una giacca per la parte finale della serata
+Sia la cerimonia che il ricevimento avranno luogo all'esterno, ma in caso di basse temperature o pioggia, per il ricevimento verrà organizzata una sala interna.
+Poichè le temperature di metà Maggio sono sempre abbastanza variabili, consigliamo comunque di portare con sè una giacca per la parte finale della serata.
 <br><br><b>Ho delle allergie o restrizioni alimentari. Come faccio ad avvisarvi?</b><br>
 Se hai allergie/restrizioni alimentari, facci sapere al più presto così ci organizziamo!<br><br>
 <b>Come posso contribuite al vostro viaggio di nozze o alla vostra nuova vita insieme?</b><br>
@@ -134,7 +137,11 @@ In case you think you could have any issues getting to the location, please reac
 Around the location there are multiple hotels and B&Bs. When booking try asking if they can provide shuttle services to/from the wedding venue.<br>
 For example, <a href="https://www.booking.com/Share-x2qf2t" target="_blank">Lion's Hotel</a> is 3 Km away from the venue and provides a shuttle service from and to the airport as well as to the wedding location, upon request.
 <br>
-We will update soon this section with other solutions. Stay tuned!<br><br>
+Other locations:<br>
+<a href="http://www.unanuovastrada.it/" target="_blank">Una nuova strada Hotel</a> <br>
+<a href="https://www.hotelristorantesangiovanni.it" target="_blank">Hotel San Giovanni</a> <br>
+<a href="https://www.booking.com/Share-pZYEER" target="_blank">Mediterraneo Palace Hotel</a>
+<br><br>
 <b>The ceremony and the wedding celebration will be in different locations? </b><br>
 No! Both the ceremony and the celebration will be in the same location<br><br>
 <b>What time does the ceremony and the wedding celebration start? </b><br>
@@ -145,7 +152,7 @@ Yes, Villa Grandinetti has a parking lot, free of charge<br><br>
 No. Consider renting a car or booking a hotel with shuttle services. In case you could have any issues let us know in advance and we will manage it<br><br>
 <b>Is the wedding outdoors? </b><br>
 Nshalla, if the weather permits😊 <br>
-Both the ceremony and the reception will be outdoors. Keep in mind that in the month of May the temperature typically ranges between a high of 78F/25C and a low of 57F/15C. We recommend bringing a jacket for the chilly evening<br><br>
+Both the ceremony and the reception will be outdoors. In case of bad weather, the reception will be indoor. Keep in mind that in the month of May the temperature typically ranges between a high of 78F/25C and a low of 57F/15C. We recommend bringing a jacket for the chilly evening<br><br>
 <b>I have dietary restrictions/allergies. What is the best way to let you know?</b><br>
 If you have any allergies/dietary restrictions, please reach out to us as soon as possible!<br><br>
 
@@ -222,6 +229,9 @@ Booking.com/Europcar.it
 
 
   بقدم خدمات نقل من وإلى المطار، ومن وإلى صالة العرس عند الطلب <br>
+<a href="http://www.unanuovastrada.it/" target="_blank">Una nuova strada Hotel</a> <br>
+<a href="https://www.hotelristorantesangiovanni.it" target="_blank">Hotel San Giovanni</a> <br>
+<a href="https://www.booking.com/Share-pZYEER" target="_blank">Mediterraneo Palace Hotel</a> <br>
 <br>
 <b>هل ستقام مراسيم الزواج والحفلة في أماكن مختلفه؟</b><br>
 ستقام المراسيم والحفلة في نفس المكان<br>
