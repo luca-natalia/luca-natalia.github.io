@@ -84,7 +84,7 @@ IT88 H036 6901 6004 0335 5296 055
 </div>
 <br><br>
 <b>Entro quando devo confermare la mia presenza?</b><br>
-Vi chiediamo gentilmente di confermare la vostra presenza entro il 17 Aprile 2026, contattandoci su WhatsApp.<br><br>
+Vi chiediamo gentilmente di confermare la vostra presenza entro il 27 Aprile 2026, contattandoci su WhatsApp.<br><br>
 <b>Se ho bisogno di maggiori informazioni?</b><br>
 Per qualsiasi info aggiuntiva, non farti problemi e contattaci pure!<br> 
 </p>`
@@ -175,7 +175,7 @@ IT88 H036 6901 6004 0335 5296 055
 </div>
 <br><br>
 <b>How do I RSVP?</b><br>
-To RSVP, please reach out to us on WhatsApp. We kindly ask you to confirm your attendance by April 17th, 2026.<br><br>
+To RSVP, please reach out to us on WhatsApp. We kindly ask you to confirm your attendance by April 27th, 2026.<br><br>
 <b>What's the best way to reach you if I have additional questions?</b><br>
 For any additional questions, please feel free to reach out to us!<br>
 </p>`
@@ -269,7 +269,7 @@ IT88 H036 6901 6004 0335 5296 055
 <br><br>
 
 <b>كيف ممكن أكد الحضور أو إعتذر؟</b><br>
-لتأكيد الحضور أو الاعتذار، ممكن تتواصلوا معنا على الواتس أب. منطلب رجاءً التأكيد قبل 17 ابريل، ٢٠٢٦.  <br><br>
+لتأكيد الحضور أو الاعتذار، ممكن تتواصلوا معنا على الواتس أب. منطلب رجاءً التأكيد قبل 27 ابريل، ٢٠٢٦.  <br><br>
 
 <b>عندي بعض من الاسئلة أخرى، كيف فيني اتواصل معكن؟</b><br>
 ما تترددوا تكتبوا لنا على واتساب من أجل أي اسئلة إضافية بتخطر على بالكن.<br>
