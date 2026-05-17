@@ -128,12 +128,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let filesArray = [];
 
   // CLICK → open file picker
-  dropzone.addEventListener("click", () => input.click());
+  dropzone.addEventListener("click", () => {
+  console.log("DROPZONE CLICK");
+  setTimeout(() => {
+    input.click();
+  }, 0);
+});
 
   // FILE SELECT
   input.addEventListener("change", (e) => {
-    addFiles(e.target.files);
-  });
+  if (!e.target.files || e.target.files.length === 0) {
+    console.log("No files selected");
+    return;
+  }
+
+  addFiles(e.target.files);
+
+  // importante: reset per iOS
+  input.value = "";
+});
 
   // DRAG OVER
   dropzone.addEventListener("dragover", (e) => {
