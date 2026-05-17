@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css?v=2.3" />
   <!-- external scripts (translations first) -->
   <script src="scripts/translations_v6.js"></script>
-    <script src="scripts/main.js?v=1.9"></script>
+    <script src="scripts/main.js?v=1.10"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Amiri&family=Merienda&family=Great+Vibes&family=Inspiration&display=swap" rel="stylesheet" />
@@ -46,7 +46,8 @@
   <p>Seleziona o trascina file</p>
 </div>
 
-<input type="file" id="fileInput" multiple style="display:none;">
+<input id="fileInput" type="file" multiple hidden>
+<div id="dropzone"></div>
 
 <button id="uploadBtn">Carica file</button>
 
