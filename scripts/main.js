@@ -1,6 +1,6 @@
 (function () {
   // =========================
-  // UI / SITE LOGIC (TUO ESISTENTE)
+  // SITE LOGIC (ESISTENTE)
   // =========================
 
   function closeOverlay() {
@@ -108,7 +108,7 @@
 
 
 // =========================
-// UPLOAD SYSTEM (FIXED)
+// UPLOAD SYSTEM (SAFE + FIXED)
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -119,18 +119,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadBtn = document.getElementById("uploadBtn");
   const status = document.getElementById("status");
 
-  // se manca UI upload, esci senza crash
+  // 🔒 SAFE GUARD: se UI non esiste, non rompere nulla
   if (!input || !dropzone || !preview || !uploadBtn || !status) {
-    console.warn("Upload UI non presente in questa pagina");
+    console.warn("Upload UI non presente in questa pagina → skip upload system");
     return;
   }
 
   let filesArray = [];
 
-  // CLICK OPEN FILES
+  // CLICK → open file picker
   dropzone.addEventListener("click", () => input.click());
 
-  // INPUT FILES
+  // FILE SELECT
   input.addEventListener("change", (e) => {
     addFiles(e.target.files);
   });
@@ -153,11 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
     addFiles(e.dataTransfer.files);
   });
 
+  // ADD FILES
   function addFiles(fileList) {
     filesArray = filesArray.concat(Array.from(fileList));
     renderPreview();
   }
 
+  // PREVIEW (images + videos)
   function renderPreview() {
     preview.innerHTML = "";
 
@@ -181,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // UPLOAD
   uploadBtn.addEventListener("click", async () => {
 
     if (!filesArray.length) {
