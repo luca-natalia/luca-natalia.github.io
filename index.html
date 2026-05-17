@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css?v=2.2" />
   <!-- external scripts (translations first) -->
   <script src="scripts/translations_v6.js"></script>
-    <script src="scripts/main.js?v=1.7"></script>
+    <script src="scripts/main.js?v=1.8"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Amiri&family=Merienda&family=Great+Vibes&family=Inspiration&display=swap" rel="stylesheet" />
@@ -42,21 +42,19 @@
       <span class="name">Natalia</span>
     </p>
 
-<div id="dropzone" class="dropzone">
-  <p>CARICA LE TUE FOTO E VIDEO DELL'EVENTO!</p>
- <input
-  type="file"
-  id="fileInput"
-  multiple
-  accept="image/*,video/*"
-/>
+<div id="dropzone">
+  <p>Seleziona o trascina file</p>
 </div>
 
-<div id="preview"></div>
+<input type="file" id="fileInput" multiple style="display:none;">
 
 <button id="uploadBtn">Carica file</button>
 
-<p id="status">
+<p id="status"></p>
+
+<div id="progressContainer">
+  <div id="progressBar"></div>
+</div>
         
     <div id="savedate" class="savedate">
       <p>SABATO, 16 MAGGIO 2026, 17:30</p>
