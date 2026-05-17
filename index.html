@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Test</title>
+  <title>Upload</title>
 
   <style>
     body {
@@ -27,18 +27,25 @@
       justify-content: center;
       cursor: pointer;
       background: white;
-      transition: 0.2s;
       user-select: none;
+      transition: 0.2s;
     }
 
     #dropzone.dragover {
-      border-color: #000;
       background: #eee;
+      border-color: #000;
     }
 
     #status {
-      margin-top: 15px;
+      margin-top: 12px;
       font-size: 14px;
+    }
+
+    #uploadBtn {
+      margin-top: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: none; /* 🔴 nascosto inizialmente */
     }
 
     #progressContainer {
@@ -55,12 +62,6 @@
       height: 100%;
       background: green;
       transition: width 0.3s ease;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 14px;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -88,7 +89,7 @@
   </div>
 
   <script>
-    console.log("SCRIPT LOADED");
+    console.log("UPLOAD SCRIPT LOADED");
 
     const dropzone = document.getElementById("dropzone");
     const input = document.getElementById("fileInput");
@@ -98,34 +99,31 @@
 
     let files = [];
 
-    // ======================
-    // CLICK → FILE PICKER
-    // ======================
+    // =========================
+    // OPEN PICKER
+    // =========================
     dropzone.addEventListener("click", () => {
-      console.log("dropzone click");
       input.click();
     });
 
-    uploadBtn.addEventListener("click", () => {
-      console.log("button click");
-      input.click();
-    });
-
-    // ======================
-    // FILE SELECTION
-    // ======================
+    // =========================
+    // FILE SELECT
+    // =========================
     input.addEventListener("change", (e) => {
       files = Array.from(e.target.files || []);
-      console.log("files:", files);
 
-      status.textContent = files.length
-        ? `${files.length} file selezionati`
-        : "Nessun file selezionato";
+      if (files.length > 0) {
+        status.textContent = `${files.length} file selezionati`;
+        uploadBtn.style.display = "block"; // 🔴 mostra bottone
+      } else {
+        status.textContent = "Nessun file selezionato";
+        uploadBtn.style.display = "none";
+      }
     });
 
-    // ======================
+    // =========================
     // DRAG OVER
-    // ======================
+    // =========================
     dropzone.addEventListener("dragover", (e) => {
       e.preventDefault();
       dropzone.classList.add("dragover");
@@ -135,25 +133,37 @@
       dropzone.classList.remove("dragover");
     });
 
-    // ======================
-    // DROP FILES
-    // ======================
+    // =========================
+    // DROP
+    // =========================
     dropzone.addEventListener("drop", (e) => {
       e.preventDefault();
       dropzone.classList.remove("dragover");
 
       files = Array.from(e.dataTransfer.files || []);
-      console.log("dropped:", files);
 
-      status.textContent = files.length
-        ? `${files.length} file aggiunti`
-        : "Nessun file";
+      if (files.length > 0) {
+        status.textContent = `${files.length} file selezionati`;
+        uploadBtn.style.display = "block";
+      }
     });
 
-    // ======================
-    // UPLOAD (verso Vercel)
-    // ======================
-    uploadBtn.addEventListener("dblclick", async () => {
+    // =========================
+    // CONVERT BASE64
+    // =========================
+    function toBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // =========================
+    // UPLOAD
+    // =========================
+    uploadBtn.addEventListener("click", async () => {
 
       if (!files.length) {
         status.textContent = "Seleziona file prima";
@@ -165,17 +175,11 @@
 
       try {
 
-        const payload = await Promise.all(files.map(file => {
-          return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve({
-              name: file.name,
-              type: file.type,
-              data: reader.result
-            });
-            reader.readAsDataURL(file);
-          });
-        }));
+        const payload = await Promise.all(files.map(async file => ({
+          name: file.name,
+          type: file.type,
+          data: await toBase64(file)
+        })));
 
         progressBar.style.width = "60%";
 
@@ -189,25 +193,28 @@
 
         const data = await res.json();
 
-        progressBar.style.width = "100%";
-
         if (data.success) {
           status.textContent = `Upload completato ✔ (${data.count})`;
+
           files = [];
           input.value = "";
+          uploadBtn.style.display = "none";
+
+          progressBar.style.width = "100%";
+
+          setTimeout(() => {
+            progressBar.style.width = "0%";
+          }, 800);
+
         } else {
           status.textContent = "Errore upload";
-          console.log(data);
         }
-
-        setTimeout(() => {
-          progressBar.style.width = "0%";
-        }, 800);
 
       } catch (err) {
         console.error(err);
         status.textContent = "Errore connessione";
       }
+
     });
 
   </script>
