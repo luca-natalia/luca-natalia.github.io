@@ -113,19 +113,16 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const input = document.getElementById("fileInput");
-  const dropzone = document.getElementById("dropzone");
-  const preview = document.getElementById("preview");
-  const uploadBtn = document.getElementById("uploadBtn");
-  const status = document.getElementById("status");
+const input = document.getElementById("fileInput");
+const dropzone = document.getElementById("dropzone");
+const preview = document.getElementById("preview");
+const uploadBtn = document.getElementById("uploadBtn");
+const status = document.getElementById("status");
 
-  // 🔒 SAFE GUARD: se UI non esiste, non rompere nulla
-  if (!input || !dropzone || !preview || !uploadBtn || !status) {
-    console.warn("Upload UI non presente in questa pagina → skip upload system");
-    return;
-  }
-
-  let filesArray = [];
+// guard obbligatorio
+if (!input || !dropzone || !preview || !uploadBtn || !status) {
+  console.log("Upload UI non presente in questa pagina → skip");
+} else {
 
   // CLICK → open file picker
   dropzone.addEventListener("click", () => {
@@ -234,3 +231,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+}
