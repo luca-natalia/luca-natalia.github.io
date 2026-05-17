@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Luca & Natalia Wedding</title>
-  <link rel="stylesheet" href="style.css?v=2.1" />
+  <link rel="stylesheet" href="style.css?v=2.2" />
   <!-- external scripts (translations first) -->
   <script src="scripts/translations_v6.js"></script>
     <script src="scripts/main.js?v=1.1"></script>
@@ -42,6 +42,17 @@
       <span class="name">Natalia</span>
     </p>
 
+<div id="dropzone" class="dropzone">
+  <p>CARICA LE TUE FOTO E VIDEO DELL'EVENTO!</p>
+  <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
+</div>
+
+<div id="preview"></div>
+
+<button id="uploadBtn">Carica file</button>
+
+<p id="status">
+        
     <div id="savedate" class="savedate">
       <p>SABATO, 16 MAGGIO 2026, 17:30</p>
       <span id="countdown-days" class="savedate"></span>
