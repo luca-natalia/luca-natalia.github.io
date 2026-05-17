@@ -1,262 +1,101 @@
-(function () {
+let filesArray = [];
 
-  // =========================
-  // SITE LOGIC (UNCHANGED SAFE)
-  // =========================
+const input = document.getElementById("fileInput");
+const dropzone = document.getElementById("dropzone");
+const uploadBtn = document.getElementById("uploadBtn");
+const status = document.getElementById("status");
+const progressBar = document.getElementById("progressBar");
 
-  function closeOverlay() {
-    const overlay = document.getElementById('overlay');
-    if (overlay && overlay.classList.contains('show')) {
-      overlay.classList.remove('show');
-    }
-  }
+if (input && dropzone && uploadBtn && status) {
 
-  function toggleLanguageMenu() {
-    const overlay = document.getElementById('overlay');
-    if (overlay && overlay.classList.contains('show')) return;
+  dropzone.addEventListener("click", () => input.click());
 
-    const langMenu = document.getElementById('language-menu');
-    if (langMenu) langMenu.classList.toggle('hidden');
-  }
-
-  function setLanguage(lang) {
-    const data = typeof translations !== "undefined" ? translations[lang] : null;
-    if (!data) return;
-
-    const flagIcon = document.getElementById('language-flag');
-    const savedate = document.getElementById('savedate');
-    const description = document.getElementById('description');
-
-    if (flagIcon) flagIcon.src = data.flag;
-    if (savedate) savedate.innerHTML = `<p>${data.weddate}</p>`;
-
-    if (description) {
-      description.innerHTML = data.content.menu;
-      description.className = `overlay-box ${data.class}`;
-      description.dir = data.dir;
-    }
-
-    document.querySelectorAll('.menu-link').forEach(el => el.textContent = data.nav[0]);
-    document.querySelectorAll('.travel-link').forEach(el => el.textContent = data.nav[1]);
-    document.querySelectorAll('.hotel-link').forEach(el => el.textContent = data.nav[2]);
-    document.querySelectorAll('.faq-link').forEach(el => el.textContent = data.nav[3]);
-
-    localStorage.setItem('language', lang);
-
-    const langMenu = document.getElementById('language-menu');
-    if (langMenu) langMenu.classList.add('hidden');
-  }
-
-  function updateDescription(section) {
-    const lang = localStorage.getItem('language') || 'it';
-    const data = typeof translations !== "undefined" ? translations[lang] : null;
-    const description = document.getElementById('description');
-
-    if (!data || !description) return;
-
-    description.innerHTML = data.content[section];
-    description.className = `overlay-box ${data.class}`;
-    description.dir = data.dir;
-  }
-
-  function updateCountdown() {
-    const el = document.getElementById('countdown-days');
-    if (!el) return;
-
-    const eventDate = new Date('2026-05-16T17:00:00');
-    const now = new Date();
-
-    const diffDays = Math.ceil((eventDate - now) / (1000 * 60 * 60 * 24));
-
-    el.textContent =
-      diffDays >= 0
-        ? `${diffDays} days to go!`
-        : `+${Math.abs(diffDays)} days ago`;
-  }
-
-  window.closeOverlay = closeOverlay;
-  window.toggleLanguageMenu = toggleLanguageMenu;
-  window.setLanguage = setLanguage;
-
-  document.addEventListener('DOMContentLoaded', () => {
-
-    const savedLang = localStorage.getItem('language') ||
-      navigator.language.slice(0, 2);
-
-    const langCode = ['it', 'en', 'lb'].includes(savedLang)
-      ? savedLang
-      : 'it';
-
-    setLanguage(langCode);
-
-    document.querySelectorAll('.menu-link')
-      .forEach(el => el.addEventListener('click', () => updateDescription('menu')));
-
-    document.querySelectorAll('.travel-link')
-      .forEach(el => el.addEventListener('click', () => updateDescription('travel')));
-
-    document.querySelectorAll('.hotel-link')
-      .forEach(el => el.addEventListener('click', () => updateDescription('hotel')));
-
-    document.querySelectorAll('.faq-link')
-      .forEach(el => el.addEventListener('click', () => updateDescription('faq')));
-
-    updateCountdown();
-    setInterval(updateCountdown, 3600000);
-  });
-
-})();
-
-
-// =========================
-// UPLOAD MODULE (ISOLATED SAFE)
-// =========================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  // 🔴 detect upload section ONLY if exists
-  const input = document.getElementById("fileInput");
-  const dropzone = document.getElementById("dropzone");
-  const preview = document.getElementById("preview");
-  const uploadBtn = document.getElementById("uploadBtn");
-  const status = document.getElementById("status");
-
-  // 👉 HARD SAFE EXIT: prevents ALL crashes
-  if (!input || !dropzone || !preview || !uploadBtn || !status) {
-    console.log("[UPLOAD MODULE] Not found on this page → skipped");
-    return;
-  }
-
-  let filesArray = [];
-
-  // =========================
-  // INPUT OPEN (iOS SAFE)
-  // =========================
-  dropzone.addEventListener("click", () => {
-    input.click();
-  });
-
-  // =========================
-  // FILE PICKER
-  // =========================
   input.addEventListener("change", (e) => {
-    if (!e.target.files || e.target.files.length === 0) return;
-
-    addFiles(e.target.files);
-
-    // important for iOS repeat selection
-    input.value = "";
+    filesArray = Array.from(e.target.files || []);
+    status.innerText = `${filesArray.length} file selezionati`;
   });
 
-  // =========================
-  // DRAG & DROP
-  // =========================
-  dropzone.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropzone.classList.add("dragover");
-  });
-
-  dropzone.addEventListener("dragleave", () => {
-    dropzone.classList.remove("dragover");
-  });
-
-  dropzone.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropzone.classList.remove("dragover");
-    addFiles(e.dataTransfer.files);
-  });
-
-  // =========================
-  // ADD FILES
-  // =========================
-  function addFiles(fileList) {
-    const newFiles = Array.from(fileList);
-    filesArray = filesArray.concat(newFiles);
-    renderPreview();
-  }
-
-  // =========================
-  // PREVIEW
-  // =========================
-  function renderPreview() {
-    preview.innerHTML = "";
-
-    filesArray.forEach((file) => {
-      const div = document.createElement("div");
-      div.className = "preview-item";
-
-      let el;
-
-      if (file.type.startsWith("image/")) {
-        el = document.createElement("img");
-        el.src = URL.createObjectURL(file);
-      } else {
-        el = document.createElement("video");
-        el.src = URL.createObjectURL(file);
-        el.controls = true;
-      }
-
-      div.appendChild(el);
-      preview.appendChild(div);
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
     });
   }
 
-  // =========================
-  // UPLOAD
-  // =========================
-uploadBtn.addEventListener("click", async () => {
+  async function processInParallel(items, limit, fn) {
+    const results = [];
+    let index = 0;
 
-  if (!filesArray.length) {
-    status.innerText = "Nessun file selezionato";
-    return;
+    async function worker() {
+      while (index < items.length) {
+        const current = index++;
+        results[current] = await fn(items[current]);
+      }
+    }
+
+    const workers = Array(Math.min(limit, items.length))
+      .fill(null)
+      .map(worker);
+
+    await Promise.all(workers);
+    return results;
   }
 
-  status.innerText = "Preparazione upload...";
+  uploadBtn.addEventListener("click", async () => {
 
-  try {
-    const payload = await Promise.all(filesArray.map(file => {
+    if (!filesArray.length) {
+      status.innerText = "Nessun file selezionato";
+      return;
+    }
 
-      return new Promise((resolve) => {
-        const reader = new FileReader();
+    status.innerText = "Preparazione upload...";
+    if (progressBar) progressBar.style.width = "5%";
 
-        reader.onload = () => {
-          resolve({
-            name: file.name,
-            type: file.type,
-            data: reader.result
-          });
+    try {
+
+      const payload = await processInParallel(filesArray, 3, async (file) => {
+        const data = await fileToBase64(file);
+        return {
+          name: file.name,
+          type: file.type,
+          data
         };
-
-        reader.readAsDataURL(file);
       });
 
-    }));
+      status.innerText = "Upload in corso...";
+      if (progressBar) progressBar.style.width = "20%";
 
-    status.innerText = "Upload in corso...";
+      const res = await fetch("https://project-favtv.vercel.app/api/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ files: payload })
+      });
 
-    const res = await fetch("https://project-favtv.vercel.app/api/upload", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ files: payload })
-    });
+      if (progressBar) progressBar.style.width = "80%";
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.success) {
-      status.innerText = `Upload completato ✔ (${data.count} file)`;
-      filesArray = [];
-      renderPreview();
-    } else {
-      status.innerText = "Errore upload";
+      if (data.success) {
+        status.innerText = `Upload completato ✔ (${data.count} file)`;
+        filesArray = [];
+
+        if (progressBar) {
+          progressBar.style.width = "100%";
+          setTimeout(() => progressBar.style.width = "0%", 800);
+        }
+
+      } else {
+        status.innerText = "Errore upload";
+      }
+
+    } catch (err) {
+      console.error(err);
+      status.innerText = "Errore connessione";
     }
 
-  } catch (err) {
-    console.error(err);
-    status.innerText = "Errore connessione";
-  }
-
-});
-
-});
+  });
+}
