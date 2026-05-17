@@ -204,38 +204,59 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // UPLOAD
   // =========================
-  uploadBtn.addEventListener("click", async () => {
+uploadBtn.addEventListener("click", async () => {
 
-    if (!filesArray.length) {
-      status.innerText = "Nessun file selezionato";
-      return;
-    }
+  if (!filesArray.length) {
+    status.innerText = "Nessun file selezionato";
+    return;
+  }
 
-    const formData = new FormData();
-    filesArray.forEach(file => formData.append("files", file));
+  status.innerText = "Preparazione upload...";
 
-    status.innerText = `Upload di ${filesArray.length} file...`;
+  try {
+    const payload = await Promise.all(filesArray.map(file => {
 
-    try {
-      const res = await fetch("https://project-favtv.vercel.app/api/upload", {
-        method: "POST",
-        body: formData
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+
+        reader.onload = () => {
+          resolve({
+            name: file.name,
+            type: file.type,
+            data: reader.result
+          });
+        };
+
+        reader.readAsDataURL(file);
       });
 
-      const data = await res.json();
+    }));
 
-      if (data.success) {
-        status.innerText = `Upload completato ✔ (${data.count} file)`;
-        filesArray = [];
-        renderPreview();
-      } else {
-        status.innerText = "Errore upload";
-      }
+    status.innerText = "Upload in corso...";
 
-    } catch (err) {
-      console.error(err);
-      status.innerText = "Errore connessione";
+    const res = await fetch("https://project-favtv.vercel.app/api/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ files: payload })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      status.innerText = `Upload completato ✔ (${data.count} file)`;
+      filesArray = [];
+      renderPreview();
+    } else {
+      status.innerText = "Errore upload";
     }
-  });
+
+  } catch (err) {
+    console.error(err);
+    status.innerText = "Errore connessione";
+  }
+
+});
 
 });
