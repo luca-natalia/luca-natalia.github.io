@@ -1,101 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <title>Luca & Natalia Wedding</title>
-  <link rel="stylesheet" href="style.css?v=2.3" />
-  <!-- external scripts (translations first) -->
-  <script src="scripts/translations_v6.js"></script>
-    <script src="scripts/main.js?v=1.10"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Amiri&family=Merienda&family=Great+Vibes&family=Inspiration&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Test</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    #dropzone {
+      width: 320px;
+      height: 180px;
+      border: 2px dashed #666;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: white;
+      user-select: none;
+    }
+
+    #dropzone:hover {
+      border-color: #000;
+    }
+
+    #status {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    #progressContainer {
+      width: 320px;
+      height: 6px;
+      background: #ddd;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    #progressBar {
+      width: 0%;
+      height: 100%;
+      background: green;
+      transition: width 0.3s ease;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
 
-   <div class="background-wrapper"> 
-  <header>
-    <div class="header-title">L&N</div>
-    <div class="header-controls">
-      <img id="language-flag" src="images/it.png" alt="Language" onclick="toggleLanguageMenu()" />
-      <div id="language-menu" class="language-menu hidden">
-        <img src="images/it.png" alt="Italiano" onclick="setLanguage('it')" />
-        <img src="images/gb.png" alt="English" onclick="setLanguage('en')" />
-        <img src="images/lb.png" alt="Lebanese" onclick="setLanguage('lb')" />
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="background-layer">
-      </div>
-      <div class="card-layer">
-    <div class="space"><p>&nbsp;</p></div>
+  <div id="dropzone">
+    Clicca qui o trascina file
+  </div>
 
-    <p>
-      <span class="name">Luca</span>
-      &nbsp;&nbsp;
-      <span class="and"> & </span>
-      <span class="name">Natalia</span>
-    </p>
+  <input
+    type="file"
+    id="fileInput"
+    multiple
+    accept="image/*,video/*"
+    hidden
+  />
 
-<div id="dropzone">
-  <p>Seleziona o trascina file</p>
-</div>
+  <button id="uploadBtn">Carica file</button>
 
-<input id="fileInput" type="file" multiple hidden>
-<div id="dropzone"></div>
+  <div id="status"></div>
 
-<button id="uploadBtn">Carica file</button>
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
 
-<p id="status"></p>
-
-<div id="progressContainer">
-  <div id="progressBar"></div>
-</div>
-        
-    <div id="savedate" class="savedate">
-      <p>SABATO, 16 MAGGIO 2026, 17:30</p>
-      <span id="countdown-days" class="savedate"></span>
-    </div>
-
-    <div class="location">
-      <p>
-        <a href="https://maps.app.goo.gl/a9343Cw3UeAWRoFFA" target="_blank" class="location-link">
-          📍 Villa Grandinetti, Nocera Terinese (CS), ITALY
-        </a>
-      </p>
-    </div>
-
-    <nav class="desktop-nav overlay-box">
-      <button type="button" class="menu-link"></button>
-      <button type="button" class="travel-link"></button>
-      <button type="button" class="hotel-link"></button>
-      <button type="button" class="faq-link"></button>
-    </nav>
-    </div>
-  </main>
-<footer class="backDescription">
-    <div id="description" class="description overlay-box">
-
-    <div class="overlay" id="overlay" onclick="closeOverlay()">
-      <div class="overlay-menu" onclick="event.stopPropagation()">
-      </div>
-    </div>
-    </div>
-  </footer>
-   </div>
-
+  <script src="/scripts/main.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
