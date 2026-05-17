@@ -93,3 +93,103 @@
     setInterval(updateCountdown, 1000 * 60 * 60);
   });
 })();
+
+const input = document.getElementById("fileInput");
+const dropzone = document.getElementById("dropzone");
+const preview = document.getElementById("preview");
+const uploadBtn = document.getElementById("uploadBtn");
+const status = document.getElementById("status");
+
+let filesArray = [];
+
+// CLICK
+dropzone.addEventListener("click", () => input.click());
+
+// INPUT FILE
+input.addEventListener("change", (e) => {
+  addFiles(e.target.files);
+});
+
+// DRAG ENTER
+dropzone.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropzone.classList.add("dragover");
+});
+
+// DRAG LEAVE
+dropzone.addEventListener("dragleave", () => {
+  dropzone.classList.remove("dragover");
+});
+
+// DROP
+dropzone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropzone.classList.remove("dragover");
+  addFiles(e.dataTransfer.files);
+});
+
+// ADD FILES
+function addFiles(fileList) {
+  filesArray = filesArray.concat(Array.from(fileList));
+  renderPreview();
+}
+
+// PREVIEW
+function renderPreview() {
+  preview.innerHTML = "";
+
+  filesArray.forEach((file, index) => {
+    const div = document.createElement("div");
+    div.className = "preview-item";
+
+    let el;
+
+    if (file.type.startsWith("image/")) {
+      el = document.createElement("img");
+      el.src = URL.createObjectURL(file);
+    } else {
+      el = document.createElement("video");
+      el.src = URL.createObjectURL(file);
+      el.controls = true;
+    }
+
+    div.appendChild(el);
+    preview.appendChild(div);
+  });
+}
+
+// UPLOAD
+uploadBtn.addEventListener("click", async () => {
+  if (!filesArray.length) {
+    status.innerText = "Nessun file selezionato";
+    return;
+  }
+
+  const formData = new FormData();
+
+  filesArray.forEach(file => {
+    formData.append("files", file);
+  });
+
+  status.innerText = `Upload di ${filesArray.length} file...`;
+
+  try {
+    const res = await fetch("https://project-favtv.vercel.app/api/upload", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      status.innerText = `Upload completato ✔ (${data.count} file)`;
+      filesArray = [];
+      renderPreview();
+    } else {
+      status.innerText = "Errore upload";
+    }
+
+  } catch (err) {
+    status.innerText = "Errore connessione";
+  }
+});
