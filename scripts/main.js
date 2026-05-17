@@ -1,6 +1,7 @@
 (function () {
+
   // =========================
-  // SITE LOGIC (ESISTENTE)
+  // SITE LOGIC (UNCHANGED SAFE)
   // =========================
 
   function closeOverlay() {
@@ -19,7 +20,7 @@
   }
 
   function setLanguage(lang) {
-    const data = translations[lang];
+    const data = typeof translations !== "undefined" ? translations[lang] : null;
     if (!data) return;
 
     const flagIcon = document.getElementById('language-flag');
@@ -48,7 +49,7 @@
 
   function updateDescription(section) {
     const lang = localStorage.getItem('language') || 'it';
-    const data = translations[lang];
+    const data = typeof translations !== "undefined" ? translations[lang] : null;
     const description = document.getElementById('description');
 
     if (!data || !description) return;
@@ -59,18 +60,18 @@
   }
 
   function updateCountdown() {
+    const el = document.getElementById('countdown-days');
+    if (!el) return;
+
     const eventDate = new Date('2026-05-16T17:00:00');
     const now = new Date();
 
-    const diffTime = eventDate - now;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffDays = Math.ceil((eventDate - now) / (1000 * 60 * 60 * 24));
 
-    const text = diffDays >= 0
-      ? `${diffDays} days to go!`
-      : `+${Math.abs(diffDays)} days ago`;
-
-    const el = document.getElementById('countdown-days');
-    if (el) el.textContent = text;
+    el.textContent =
+      diffDays >= 0
+        ? `${diffDays} days to go!`
+        : `+${Math.abs(diffDays)} days ago`;
   }
 
   window.closeOverlay = closeOverlay;
@@ -101,75 +102,82 @@
       .forEach(el => el.addEventListener('click', () => updateDescription('faq')));
 
     updateCountdown();
-    setInterval(updateCountdown, 1000 * 60 * 60);
+    setInterval(updateCountdown, 3600000);
   });
 
 })();
 
 
 // =========================
-// UPLOAD SYSTEM (SAFE + FIXED)
+// UPLOAD MODULE (ISOLATED SAFE)
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const input = document.getElementById("fileInput");
-const dropzone = document.getElementById("dropzone");
-const preview = document.getElementById("preview");
-const uploadBtn = document.getElementById("uploadBtn");
-const status = document.getElementById("status");
+  // 🔴 detect upload section ONLY if exists
+  const input = document.getElementById("fileInput");
+  const dropzone = document.getElementById("dropzone");
+  const preview = document.getElementById("preview");
+  const uploadBtn = document.getElementById("uploadBtn");
+  const status = document.getElementById("status");
 
-// guard obbligatorio
-if (!input || !dropzone || !preview || !uploadBtn || !status) {
-  console.log("Upload UI non presente in questa pagina → skip");
-} else {
-
-  // CLICK → open file picker
-  dropzone.addEventListener("click", () => {
-  console.log("DROPZONE CLICK");
-  setTimeout(() => {
-    input.click();
-  }, 0);
-});
-
-  // FILE SELECT
-  input.addEventListener("change", (e) => {
-  if (!e.target.files || e.target.files.length === 0) {
-    console.log("No files selected");
+  // 👉 HARD SAFE EXIT: prevents ALL crashes
+  if (!input || !dropzone || !preview || !uploadBtn || !status) {
+    console.log("[UPLOAD MODULE] Not found on this page → skipped");
     return;
   }
 
-  addFiles(e.target.files);
+  let filesArray = [];
 
-  // importante: reset per iOS
-  input.value = "";
-});
+  // =========================
+  // INPUT OPEN (iOS SAFE)
+  // =========================
+  dropzone.addEventListener("click", () => {
+    input.click();
+  });
 
-  // DRAG OVER
+  // =========================
+  // FILE PICKER
+  // =========================
+  input.addEventListener("change", (e) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+
+    addFiles(e.target.files);
+
+    // important for iOS repeat selection
+    input.value = "";
+  });
+
+  // =========================
+  // DRAG & DROP
+  // =========================
   dropzone.addEventListener("dragover", (e) => {
     e.preventDefault();
     dropzone.classList.add("dragover");
   });
 
-  // DRAG LEAVE
   dropzone.addEventListener("dragleave", () => {
     dropzone.classList.remove("dragover");
   });
 
-  // DROP
   dropzone.addEventListener("drop", (e) => {
     e.preventDefault();
     dropzone.classList.remove("dragover");
     addFiles(e.dataTransfer.files);
   });
 
+  // =========================
   // ADD FILES
+  // =========================
   function addFiles(fileList) {
-    filesArray = filesArray.concat(Array.from(fileList));
+    const newFiles = Array.from(fileList);
+    filesArray = filesArray.concat(newFiles);
     renderPreview();
   }
 
-  // PREVIEW (images + videos)
+  // =========================
+  // PREVIEW
+  // =========================
   function renderPreview() {
     preview.innerHTML = "";
 
@@ -193,7 +201,9 @@ if (!input || !dropzone || !preview || !uploadBtn || !status) {
     });
   }
 
+  // =========================
   // UPLOAD
+  // =========================
   uploadBtn.addEventListener("click", async () => {
 
     if (!filesArray.length) {
@@ -202,10 +212,7 @@ if (!input || !dropzone || !preview || !uploadBtn || !status) {
     }
 
     const formData = new FormData();
-
-    filesArray.forEach(file => {
-      formData.append("files", file);
-    });
+    filesArray.forEach(file => formData.append("files", file));
 
     status.innerText = `Upload di ${filesArray.length} file...`;
 
@@ -226,9 +233,9 @@ if (!input || !dropzone || !preview || !uploadBtn || !status) {
       }
 
     } catch (err) {
+      console.error(err);
       status.innerText = "Errore connessione";
     }
   });
 
 });
-}
